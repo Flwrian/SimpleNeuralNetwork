@@ -25,3 +25,12 @@ network = NeuralNetwork(X, y)
 network.train(10000)
 print(network.process(X))
 ```
+
+> Output:
+```python
+[[0.01038789]
+ [0.99123457]
+ [0.98944122]
+ [0.00863672]]
+```
+
