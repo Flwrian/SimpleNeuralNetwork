@@ -6,6 +6,8 @@ def nonlin(x, deriv=False):
         return x*(1-x)
     return 1/(1+np.exp(-x))
 
+# Relu function (activation function)
+# Not implemented yet
 def relu(x, deriv=False):
     if(deriv==True):
         return 1. * (x > 0)
@@ -32,6 +34,8 @@ class NeuralNetwork:
                     [1],\n
                     [1],\n
                     [0]  ])\n
+
+    You can tweak the input and expected data to train the network to do different things but the input and expected data must be the same size: -> look at shapes for more info\n
     """
 
     def __init__(self, input, expected):
