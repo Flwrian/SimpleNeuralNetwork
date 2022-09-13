@@ -6,6 +6,11 @@ def nonlin(x, deriv=False):
         return x*(1-x)
     return 1/(1+np.exp(-x))
 
+def relu(x, deriv=False):
+    if(deriv==True):
+        return 1. * (x > 0)
+    return x * (x > 0)
+
 # Upgrade possible:
 # Refactor? -> Layer -> Neuron
 # aJOUT DES BIAS
