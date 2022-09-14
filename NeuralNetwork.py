@@ -53,6 +53,9 @@ class NeuralNetwork:
         self.syn0 = weights[0]
         self.syn1 = weights[1]
 
+    def setExpected(self, expected):
+        self.expected = expected
+
     def predict(self, input):
         """ Process the input data through the neural network and return the predicted output. """""
 
