@@ -25,7 +25,7 @@ y = np.array([  [0],
 
 network = NeuralNetwork(X, y)
 network.train(10000)
-print(network.process(X))
+print(network.predict(X))
 ```
 
 > Output:
@@ -52,7 +52,7 @@ This means that the [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_d
 
 Now let's say that if a row of $X$ is **even**, we want to output 1 in $y$[0][0] (the corresponding output neuron).
 
-We will re-use our trained [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) to process our input once.
+We will re-use our trained [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) to predict our input once.
 
 ```python
 # Input data
@@ -86,7 +86,7 @@ y = np.array([
                 [1]  # Should output 1
             ])
 
-print(network.process(X))
+print(network.predict(X))
 ```
 
 > Output:
