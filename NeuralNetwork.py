@@ -41,6 +41,7 @@ class NeuralNetwork:
     def __init__(self, input, expected):
         self.syn0 = 2*np.random.random((3,4)) - 1
         self.syn1 = 2*np.random.random((4,1)) - 1
+        self.epoch = 0
 
         # Input data
         self.input = input
@@ -52,8 +53,8 @@ class NeuralNetwork:
         self.syn0 = weights[0]
         self.syn1 = weights[1]
 
-    def process(self, input):
-        """ Process the input data through the neural network and return the output. """""
+    def predict(self, input):
+        """ Process the input data through the neural network and return the predicted output. """""
 
         # Feed forward through layers 0, 1, and 2
         l0 = input
@@ -77,8 +78,11 @@ class NeuralNetwork:
         self.syn1 += l1.T.dot(l2_delta)
         self.syn0 += l0.T.dot(l1_delta)
 
+        self.epoch += 1
+
         return l2
 
-    def train(self, iterations):
-        for i in range(iterations):
-            self.process(self.input)
+    def train(self, epochs=0):
+        """ Train the neural network with number of epochs. """""
+        for i in range(epochs):
+            self.predict(self.input)
