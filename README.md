@@ -7,7 +7,7 @@ A [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artific
 
 ![alt](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Neural_network.svg/1920px-Neural_network.svg.png)
 
-This [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) is still in testing since there are missing parameters like learning rate and more parameters for customization.
+Note that [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) is still in testing since there are missing parameters like learning rate and more parameters for customization. I might be wrong about some things, I'm currently learning how a [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) works.
 
 ## Example:
 ```python
@@ -53,6 +53,8 @@ This means that the [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_d
 Now let's say that if a row of $X$ is **even**, we want to output 1 in $y$[0][0] (the corresponding output neuron).
 
 We will re-use our trained [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) to predict our input once.
+
+Note that we are re-using the same inputs, but in a different order.
 
 ```python
 # Input data
@@ -101,7 +103,7 @@ print(network.predict(X))
 This match with our expected output.
 
 ----------
-Note that the more you train the [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels), the more accurate you will get on your results. If you don't train your [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) enough, sometimes it can be false.
+Note that the more you train the [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels), the more accurate you will get on your results. If you don't train your [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) enough, sometimes it can be false. You need to train the [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) in a way that it know a lot of "combinaison" so it can try his best to predict an output.
 
 Example (same code, inputs and outputs):
 
