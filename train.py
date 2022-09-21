@@ -31,8 +31,8 @@ def train(epoch):
         if input.sum() >= 10:
             expected = np.array([1])
 
-        nn.setExpected(expected)
-        nn.setInputs(input)
+        nn.expected = expected
+        nn.input = input
 
         # Train the neural network
         nn.train(15000)
