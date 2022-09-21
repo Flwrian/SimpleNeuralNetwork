@@ -53,14 +53,6 @@ class NeuralNetwork:
         """ Set the bias. """""
         self.syn1 = bias
 
-    def setInputs(self, input):
-        """ Set the input data. """""
-        self.input = input
-
-    def setExpected(self, expected):
-        """ Set the expected output data. """""
-        self.expected = expected
-
     def predict(self, input):
         """ Process the input data through the neural network and return the predicted output. """""
 
