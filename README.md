@@ -11,122 +11,53 @@ Note that [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones
 
 ## Example:
 ```python
-# Input data
-X = np.array([  [0,0,1],
-                [0,1,1],
-                [1,0,1],
-                [1,1,1]  ])
+import math
+from NeuralNetwork import NeuralNetwork
+import numpy as np
 
-# Expected output data
-y = np.array([  [0],
-                [1],
-                [1],
-                [0]  ])
-
-network = NeuralNetwork(X, y)
-network.train(10000)
-print(network.predict(X))
-```
-
-> Output:
-```python
-[[0.01038789]
- [0.99123457]
- [0.98944122]
- [0.00863672]]
-```
-
-The interpretation of the output is simple. Each number, correspond to the accuracy.
-
-1st Output: $(1-0.01038789) * 100$ = $0.98961211$
-
-This means that the [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) is sure at ~99% that the output is **NOT** 1 here (or 1% sure that the output is 1).
-
-2nd Output: $0.99123457 * 100$ = $0.98961211$
-
-This means that the [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) is sure at ~99% that the output is 1 here (or 1% sure that the output is **not** 1).
+# Our problem is to predict if the sum of the input is greater than 10.
+# We will use 1x3 input and 1x1 output.
+# The sum of the input will be a random number between 0 and 15.
+# The output will be 1 if the sum is greater than 10 and 0 if it is not.
 
 
-----------
+
+# max will be used to generate numbers between 0 and 6 non included
+max = 6
+
+# Create the input data
+input = np.random.randint(0, max, (1, 3))
+
+# Create the expected output data
+expected = np.array([0])
+if input.sum() >= 10:
+    expected = np.array([1])
+
+# Create the neural network
+nn = NeuralNetwork(input, expected)
+
+def train(epoch):
+    for i in range(epoch):
+        # Create the input data
+        input = np.random.randint(0, max, (1, 3))
+        expected = np.array([0])
+        if input.sum() >= 10:
+            expected = np.array([1])
+
+        nn.setExpected(expected)
+        nn.input = input
+
+        # Train the neural network (you can use any numbers you want, just watch the results).
+        # In this case it will train 15000 times on the same input.
+        nn.train(15000)
+        print("Generation:",i," | input:",input," | expected:",expected," | output:",nn.predict(input),round(i/epoch*100, 2),"% complete", "Valid? ", round(nn.predict(input)[0][0]) == expected)
 
 
-Now let's say that if a row of $X$ is **even**, we want to output 1 in $y$[0][0] (the corresponding output neuron).
+train(round(math.pow(max, 3)))
+input = np.array([[1, 3, 4]])
+nn.input = input
+print("input:",input," | output:",round(nn.predict(input)[0][0], 4))
 
-We will re-use our trained [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) to predict our input once.
-
-Note that we are re-using the same inputs, but in a different order.
-
-```python
-# Input data
-X = np.array([  [0,0,1],
-                [0,1,1],
-                [1,0,1],
-                [1,1,1]  ])
-
-# Expected output data
-y = np.array([  [0],
-                [1],
-                [1],
-                [0]  ])
-
-network = NeuralNetwork(X, y)
-network.train(10000)
-
-# New input data
-X = np.array([  
-                [1,0,1], # Even (1)
-                [1,1,1], # Odd (0)
-                [1,0,1], # Even (1)
-                [0,1,1]  # Even (1)
-            ])
-
-# Expected output data
-y = np.array([  
-                [1], # Should output 1
-                [0], # Should output 0
-                [1], # Should output 1
-                [1]  # Should output 1
-            ])
-
-print(network.predict(X))
-```
-
-> Output:
-
-```python
-[[0.99061512]
- [0.0109055 ]
- [0.99061512]
- [0.99236198]]
-```
-
-This match with our expected output.
-
-----------
-Note that the more you train the [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels), the more accurate you will get on your results. If you don't train your [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) enough, sometimes it can be false. You need to train the [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) in a way that it know a lot of "combinaison" so it can try his best to predict an output.
-
-Example (same code, inputs and outputs):
-
-```python
-#100 iterations
-[[0.52833502]
- [0.48455771]
- [0.52833502]
- [0.48459066]]
-```
-
-```python
-#1000 iterations
-[[0.92622703]
- [0.07174901]
- [0.92622703]
- [0.95602922]]
-```
-
-```python
-#100000 iterations
-[[0.99706991]
- [0.00297979]
- [0.99706991]
- [0.99707101]]
+# Save the neural network
+nn.saveNetwork()
 ```
