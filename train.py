@@ -6,6 +6,8 @@ import numpy as np
 # We will use 1x3 input and 1x1 output.
 # The sum of the input will be a random number between 0 and 15.
 # The output will be 1 if the sum is greater than 10 and 0 if it is not.
+# Note that the network will try to load previous trained network,, by loading weights.npy and bias.npy.
+# If they don't exist, it will create a new network.
 
 
 
