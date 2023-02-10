@@ -7,7 +7,7 @@ A [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artific
 
 ![alt](https://upload.wikimedia.org/wikipedia/commons/thumb/3/3d/Neural_network.svg/1920px-Neural_network.svg.png)
 
-Note that [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) is still in testing since there are missing parameters like learning rate and more parameters for customization. I might be wrong about some things, I'm currently learning how a [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) works.
+Note that [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) is still in testing since there are missing parameters like learning rate and more parameters for customization. I might be wrong about some things, I'm currently *learning* how a [Neural Network](https://fr.wikipedia.org/wiki/R%C3%A9seau_de_neurones_artificiels) works.
 
 ## Example:
 ```python
